@@ -31,7 +31,7 @@
 </div>
 </body>
 <script>
-    var obj=[{show:false,"name":"运动首页","children":[{"name":"运动课程"},{"name":"首页详情"}]},{show:false,"name":"训练课程"},{show:false,"name":"热门活动","children":[{"name":"运动课程"},{"name":"首页详情"}]},{show:false,"name":"话题讨论","children":[{"name":"运动课程"},{"name":"首页详情"}]},{show:false,"name":"关于我们","children":[{"name":"运动课程"},{"name":"首页详情"}]}];
+    var obj=[{show:false,"name":"运动首页","children":[{"name":"运动课程"},{"name":"首页详情"}]},{show:false,"name":"训练课程","children":[{"name":"运动课程"},{"name":"首页详情"}]},{show:false,"name":"热门活动","children":[{"name":"运动课程"},{"name":"首页详情"}]},{show:false,"name":"话题讨论","children":[{"name":"运动课程"},{"name":"首页详情"}]},{show:false,"name":"关于我们","children":[{"name":"运动课程"},{"name":"首页详情"}]}];
     Vue.component("slide",{
         template:"<div><ul v-for='item in obj' ><li v-if='!item.children'>{{item.name}}</li><li v-else @click='item.show=!item.show'>{{item.name}}<ul v-for='items in item.children' v-if='item.show'><li>{{items.name}}</li></ul></li></ul></div>",
         data:function(){
