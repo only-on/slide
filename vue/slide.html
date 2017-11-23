@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="vue.js"></script>
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin:0;
+    }
+    html,body{
+        height: 100%;
+    }
+    .box{
+        width:300px;
+        height: 100%;
+        padding:30px;
+    }
+    li{
+        padding:5px 0;
+        cursor: pointer;
+    }
+</style>
+<body>
+<div class="box">
+    <slide></slide>
+</div>
+</body>
+<script>
+    var obj=[{show:false,"name":"运动首页","children":[{"name":"运动课程"},{"name":"首页详情"}]},{show:false,"name":"训练课程"},{show:false,"name":"热门活动"},{show:false,"name":"话题讨论"},{show:false,"name":"关于我们","children":[{"name":"运动课程"},{"name":"首页详情"}]}];
+    Vue.component("slide",{
+        template:"<div><ul v-for='item in obj' ><li v-if='!item.children'>{{item.name}}</li><li v-else @click='item.show=!item.show'>{{item.name}}<ul v-for='items in item.children' v-if='item.show'><li>{{items.name}}</li></ul></li></ul></div>",
+        data:function(){
+            return{
+                obj:obj,
+                show:false
+            }
+        }
+    })
+    new Vue({
+        el:'.box',
+    })
+</script>
+</html>
